@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:simple_chat/models/message.dart';
 
 import '../../bloc/chat_bloc.dart';
 import '../../bloc/chat_state.dart';
 import 'message_widget.dart';
 
 class MiddleRightSide extends StatelessWidget {
-  const MiddleRightSide({Key? key}) : super(key: key);
-
+  MiddleRightSide({Key? key}) : super(key: key);
+  final _myController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChatBloc, ChatState>(builder: (context, state) {
@@ -22,7 +21,7 @@ class MiddleRightSide extends StatelessWidget {
       } else if (state is ChatLoadState) {
         return Expanded(
           child: ListView.builder(
-              controller: ScrollController(),
+              controller: _myController,
               itemCount: state.currentChat.messages.length,
               itemBuilder: (context, index) => MessageWidget(
                     message: state.currentChat.messages[index],

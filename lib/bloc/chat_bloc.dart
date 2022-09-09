@@ -32,7 +32,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
   FutureOr<void> _addMessage(
       ChatAddMessageEvent event, Emitter<ChatState> emit) {
-    currentChat.messages.add(Message(id: 4, text: event.text));
+    currentChat.messages.add(Message(id: 4, text: event.text, right: true));
     emit(ChatLoadState(chats: chats, currentChat: currentChat));
   }
 }

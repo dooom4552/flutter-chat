@@ -12,7 +12,7 @@ class RightSide extends StatelessWidget {
     return Expanded(
       child: Column(children: [
         const HeaderRightSide(),
-        const MiddleRightSide(),
+        MiddleRightSide(),
         BottomRideSide()
       ]),
     );

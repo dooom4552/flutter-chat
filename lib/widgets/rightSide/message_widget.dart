@@ -6,15 +6,17 @@ class MessageWidget extends StatelessWidget {
   final Message message;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50.0,
-      child: Card(
-        color: Colors.amber,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text(message.text),
-        ),
-      ),
+    return Row(
+      mainAxisAlignment:
+          message.right ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 50.0,
+          child: Card(
+              color: message.right ? Colors.green.shade200 : Colors.grey,
+              child: Text(message.text)),
+        )
+      ],
     );
   }
 }
